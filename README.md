@@ -8,4 +8,4 @@ algorithm for a given input, and what is a stable sorting algorithm.
 ## Contributors
 Please direct any questions to:
 - **Jessica Loyd:** 4239@holbertonschool.com
-- **Samuel Townsend:** 42382holbertonschool.com
+- **Samuel Townsend:** 4238@holbertonschool.com
