@@ -10,18 +10,37 @@
 
 void insertion_sort_list(listint_t **list)
 {
-	listint_t *current;
-	listint_t *index;
+	listint_t *current = NULL; /* helps traverse list & swap node */
 
-	if (*list == NULL)
+	if (list == NULL)
 	{
 		return;
 	}
 	current = (*list)->next; /* set node to traverse list */
-	while (current)
+	while (current) /* until we're at end of list */
 	{
-		index = current; /* copy current to index */
-		current = current->next; /* move to next node */
-		while (index && index->prev)
+		current = current->next;
+		/* this condition sets sort in ascending order */
+		while (current->prev && current->prev->n > current->n)
 		{
-			
+			current->prev->next = current->next;
+			if (current->next)
+			{
+				current->next->prev = current->prev;
+			}
+			/* statements to swap nodes when applicable */
+			current->next = current->prev;
+			current->prev = current->prev->prev;
+			current->next->prev = current;
+			if (!current->prev)
+			{
+				*list = current;
+			}
+			else
+			{
+				current->prev->next = current;
+			}
+			print_list(*list);
+		}
+	}
+}
