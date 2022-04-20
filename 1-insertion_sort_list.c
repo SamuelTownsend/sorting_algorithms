@@ -19,7 +19,6 @@ void insertion_sort_list(listint_t **list)
 	current = (*list)->next; /* set node to traverse list */
 	while (current) /* until we're at end of list */
 	{
-		current = current->next;
 		/* this condition sets sort in ascending order */
 		while (current->prev && current->prev->n > current->n)
 		{
@@ -42,5 +41,6 @@ void insertion_sort_list(listint_t **list)
 			}
 			print_list(*list);
 		}
+		current = current->next;
 	}
 }
